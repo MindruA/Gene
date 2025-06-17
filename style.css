@@ -1,0 +1,705 @@
+/* === RESET === */
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: white;
+
+
+}
+
+body {
+  position: relative;
+}
+
+body {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE și Edge */
+  overflow-y: auto;            /* păstrează scroll funcțional */
+}
+
+body::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Opera */
+}
+html {
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE și Edge */
+  overflow-y: auto;            /* păstrează scroll funcțional */
+}
+
+html::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Opera */
+}
+
+
+
+/*LOGO SI LINIA CENTRALA*/
+#logo_centrat{
+  width: 30vw;
+  height: 60vh;
+
+position: absolute;
+left: 35vw;
+top: 20vh;
+}
+#logo{
+  max-width: 100%;
+  position: absolute;
+}
+#logo_svg{
+  max-width: 8vw;
+    z-index: 1000;
+  opacity: 0;
+  left: 44vw;
+  top: 1%;
+  position: absolute;
+transform: translateY(-20vh);
+filter: drop-shadow(2px -1px 9px #ffffff7e);
+transition: opacity 1s ease;
+}
+
+#logo_header{
+   max-width: 8vw;
+    z-index: 1000;
+  opacity: 0;
+
+  position: absolute;
+ 
+transition: opacity 1s ease;
+}
+.totsvg{
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 3s ease;
+}
+.totsvg.dispare{
+  opacity: 0;
+}
+
+
+/* === LINIA CENTRATĂ === */
+.line-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.animated-line {
+  height: 100%;
+  width: 2px;
+}
+
+.animated-line path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 1.5s ease-out forwards;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/*DREPTUNGHI CE SE MARESTE*/
+.half-screen {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  background-color: black;
+  z-index: 1;
+  opacity: 1;
+}
+
+.left-half {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  right: 50vw;
+  width: 0;
+  animation: expandLeft 0.8s cubic-bezier(0.30, 0.67, 0.83, 0.90) 1.5s forwards; /* deja corect */
+  animation-fill-mode: forwards; /* <- adaugă explicit dacă nu e recunoscut implicit */
+}
+
+
+.right-half {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  left: 50vw;
+  width: 0;
+  animation: expandRight 0.8s cubic-bezier(0.30, 0.67, 0.83, 0.90) 1.5s forwards;
+  animation-fill-mode: forwards; /* la fel aici */
+}
+
+
+
+#scris_mana{
+  z-index: 100;
+  opacity: 0;
+  left: 28vw;
+  top: 20%;
+  position: relative;
+
+}
+#Vector,
+#Vector2 {
+  opacity: 0;
+  transform: translateY(40px);
+}
+#scroll-svg{
+   left: 28vw;
+  top: 90vh;
+  position: absolute;
+  z-index: 10000;
+}
+#scroll-svg {
+  transform: translateY(-20px); /* Pornește mai sus */
+  opacity: 0;
+}
+#stelute-galbene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5000;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+#pozaparalaxdiv{
+  opacity: 0;
+  position: absolute;
+  right: 0;
+width: 30vw;
+height: 100vh;
+display: flex;
+overflow: hidden;
+
+}
+.face-wrapper {
+
+width: 30vw;
+height: 100vh;
+position: absolute;
+z-index: 10000;
+display: flex;
+justify-content: center;
+
+}
+#backparalax{
+
+    
+z-index: 10;
+max-height: 100vh;
+}
+#pozaparalax{
+
+  filter: drop-shadow(-11px 4px 20px #000000);
+  position: absolute;
+z-index: 100;
+max-height: 100vh;
+}
+
+
+
+#pozaparalaxdivstanga{
+opacity: 0;
+   position: absolute;
+  left: 0;
+width: 26vw;
+height: 100vh;
+display: flex;
+overflow: hidden;
+}
+#pozaparalaxstanga
+{
+filter: drop-shadow(5px 5px 40px #000000);
+  position: absolute;
+z-index: 100;
+max-height: 100vh;
+}
+#backparalaxstanga{
+z-index: 10;
+background-color: red;
+max-height: 100vh;
+}
+.face-wrapperstanga{
+
+width: 30vw;
+height: 100vh;
+position: absolute;
+z-index: 10000;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+@keyframes expandLeft {
+  to {
+    width: 50vw;
+  }
+}
+
+@keyframes expandRight {
+  to {
+    width: 50vw;
+  }
+}
+
+
+
+
+/*elemente din totsvg*/
+#nume {
+  position: absolute;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+
+#nume path {
+  opacity: 0;
+  stroke: white;
+  fill: none;
+  stroke-width: 1.2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: contureaza 4s ease forwards;
+
+}
+@keyframes contureaza {
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+#micro_scris{
+    position: relative;
+    z-index: 1000;
+     
+}
+@keyframes urca {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+    fill-opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    fill-opacity: 1;
+  }
+}
+#micro_scris path {
+  fill: white;
+  opacity: 0;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+/* Keyframes existente */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#im2{
+  width: 100vw;
+  z-index: 10000;
+}
+.primapoza{
+  width: 100%;
+  height: 100vh;
+
+}
+#pp {
+  opacity: 0;
+max-height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  transition: opacity 3s ease-in;
+}
+
+
+
+#partea2{ 
+ width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  z-index: 10000;
+  transition: opacity 3s ease-in;
+
+}
+.header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 20vh;
+
+}
+
+#scris_sub_header{
+
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+#sh1{
+  margin: 0;
+  color: #000;
+font-family: 'General Sans', sans-serif;
+font-size: 12vw;
+font-style: normal;
+font-weight: 400;
+  line-height: 115%; /* 110.4px */
+  opacity: 0;
+ margin-left: 2vw;
+}
+#sh2{
+margin: 0;
+  color: #000;
+    font-family: 'abr', serif;
+font-size: 12vw;
+font-style: normal;
+font-weight: 100;
+text-align: right;         /* ← aliniază textul în dreapta */
+  align-self: flex-end;      /* ← pentru flexbox dacă este în coloană */
+  margin-right: 3vw;
+    line-height:20vh;
+    opacity: 0;
+ 
+}
+
+@font-face {
+  font-family: 'Abr';
+  src: url('fonts/AbrilFatface-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#partea3{
+  position: relative;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
+  margin-top: 10vh;
+ 
+  width: 100vw;
+  height: auto;
+  display: flex;
+  background-image: url(poze/back7.png);
+  background-position: center;
+  background-size: 90vw;
+  background-repeat: no-repeat;
+  gap: 5vw;
+}
+#imaginepart{
+  width: 50%;
+  height: 100%;
+  margin-left: 5vw;
+ 
+
+}
+#imaginepart {
+  transform-origin: center center;
+}
+
+#pf1{
+  width: 100%;
+height: 100%;
+border-radius: 25px;
+}
+#detalii{
+  width: 35vw;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
+  justify-content: center;
+
+}
+#detaliu1{
+overflow: show;
+  height: 45%;
+   color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+
+}
+#detaliu1, #detaliu2 {
+  box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+  transform: scale(1);
+  transition: box-shadow 0.8s ease, transform 0.8s ease;
+}
+
+
+
+
+
+#det1{
+    font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 2.5rem;
+  text-align: center;
+ text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.37);
+}
+#detaliu2{
+  height: 45%;
+ 
+ background-image: linear-gradient(
+  50deg,
+  hsl(351 43% 82% / 0.55) 0%,
+  hsl(351 43% 83% / 0.55) 15%,
+  hsl(351 43% 84% / 0.55) 22%,
+  hsl(351 43% 85% / 0.55) 28%,
+  hwb(352 80% 8%  / 0.65) 33%,
+  hsl(351 44% 88% / 0.65) 37%,
+  hsl(351 44% 89% / 0.65) 42%,
+  hsl(351 44% 90% / 0.70) 46%,
+  hsl(351 44% 91% / 0.72) 50%,
+  hsl(351 44% 92% / 0.75) 54%,
+  hsl(351 45% 93% / 0.80) 58%,
+  hsl(351 45% 94% / 0.85) 63%,
+  hsl(351 45% 95% / 0.88) 67%,
+  hsl(351 45% 97% / 0.92) 72%,
+  hsl(351 45% 98% / 0.96) 78%,
+  hsl(351 45% 99% / 0.98) 85%,
+  hsl(0   0% 100% / 1)    100%
+);
+
+  text-shadow: -3px 3px 5px rgba(0, 0, 0, 0.37);
+ 
+}
+
+#detaliu1,#detaliu2{
+
+  border-radius: 20px;
+}
+
+
+
+#pf1 {
+  transition: filter 0.6s cubic-bezier(.4,2,.5,1), transform 0.6s cubic-bezier(.4,2,.5,1);
+  filter: none;
+ 
+  
+}
+
+#detaliu1, #detaliu2 {
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: transform 0.5s ease-out;
+  will-change: transform;
+
+}
+
+#detaliu2 h1{
+
+   font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 200;
+  color: black;
+  text-align: center;
+}
+#cout {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 200;
+  color: black;
+  display: inline-block;
+}
+
+/* Add these to your existing style.css */
+body{
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#img_paralax {
+  position: relative;
+  width: 100vw;
+  height: 230vh;
+
+  overflow: hidden;
+  margin-bottom: 20vw;
+display: flex;
+flex-direction: column;
+gap: 10vw;
+justify-content: center;
+
+}
+
+
+#divpx1 {
+  margin-top: 20vw;
+border-radius: 10px;
+  margin-left: 5vw;
+  width: 40vw;
+  height: 22vw;
+  overflow: hidden;
+  will-change: transform; /* Optimizare performanță */
+}
+#divpx2 {
+
+width: 100vw;
+display: flex;
+}
+
+
+#over2{
+border-radius: 10px;
+  margin-left: 50vw;
+
+ 
+  width: 40vw;
+  height: 22vw;
+  overflow: hidden;
+  will-change: transform; /* Optimizare performanță */
+}
+#divpx3 {
+border-radius: 10px;
+  margin-left: 5vw;
+ 
+   
+  width: 40vw;
+  height: 22vw;
+  overflow: hidden;
+  will-change: transform; /* Optimizare performanță */
+}
+#px1 {
+
+  width: 100%;
+  height: 100%; /* Extrage puțin în afara containerului pentru efect */
+  object-fit: cover;
+  transform-origin: center center;
+  
+}
+
+#px1 {
+  will-change: transform;
+  transform: translateZ(0);
+}
+#px2 {
+border-radius: 10px;
+  width: 100%;
+  height: 100%; /* Extrage puțin în afara containerului pentru efect */
+  object-fit: cover;
+  transform-origin: center center;
+  
+}
+
+#px2 {
+  will-change: transform;
+  transform: translateZ(0);
+}
+#px3 {
+
+  width: 100%;
+  height: 100%; /* Extrage puțin în afara containerului pentru efect */
+  object-fit: cover;
+  transform-origin: center center;
+  
+}
+
+#px3 {
+  will-change: transform;
+  transform: translateZ(0);
+}
+#divpx1,#over2,#divpx3  {
+  box-shadow: -9px 7px 16px 0px rgba(0, 0, 0, 0.489);
+-webkit-box-shadow: -9px 7px 16px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -9px 7px 16px 0px rgba(0,0,0,0.75);
+}
+#divh2{
+font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-size: 3.2vw;
+  text-shadow: -3px 4px 5px rgba(0,0,0,0.6);
+  z-index:10000;
+}
+#divh2{
+  position: absolute;
+  transform: translateX(5vw) translateY(5vw);
+}
+#deosebita{
+color: rgba(255, 0, 153, 1);
+
+
+}
+
+#funda{
+  position: absolute;
+  transform: translateX(5vw);
+}
+
+
+#drum{
+transform: translateX(-10vw) translateY(2vh);
+  position: absolute;
+  
+
+}
+svg .drum-1 {
+  stroke-dashoffset: 4017.088134765625px;
+  stroke-dasharray: 4017.088134765625px;
+  -webkit-transition: stroke-dashoffset 5s ease-in 0s;
+          transition: stroke-dashoffset 5s ease-in 0s;
+}
+
+svg.active .drum-1 {
+  stroke-dashoffset: 0;
+}
+
+
+
+
+#despre-gene{
+  position: relative;
+  width: 100vw;
+  height: 200vh;
+  background-color: black;
+}
+
+#outer-circle,
+#inner-circle {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
